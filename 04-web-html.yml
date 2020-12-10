@@ -1,0 +1,23 @@
+---
+- name: update web servers
+  hosts: web
+  become: yes
+
+  tasks:
+
+  - name: ensure file updated
+    copy:
+      dest: /var/www/html/web.html
+      src: sheldon.html
+
+- name: update app servers
+  hosts: app
+  become: yes
+
+  tasks:
+
+  - name: ensure file updated
+    copy:
+      dest: /var/www/html/app.html
+      src: sheldon.html
+...

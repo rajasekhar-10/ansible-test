@@ -1,0 +1,29 @@
+---
+- name: update web servers
+  hosts: web
+
+  tasks:
+  - name: ensure directory is created
+    file:
+      path: /home/centos/web
+      state: directory
+
+  - name: ensure file updated
+    copy:
+      dest: /home/centos/web/web.html
+      content: Welcome To Web Servers
+
+- name: update app servers
+  hosts: app
+
+  tasks:
+  - name: ensure directory is created
+    file:
+      path: /home/centos/app
+      state: directory
+
+  - name: ensure file updated
+    copy:
+      dest: /home/centos/app/app.html
+      content: Welcome To Database Servers
+...

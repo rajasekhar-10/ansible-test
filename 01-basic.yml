@@ -1,0 +1,9 @@
+---
+- name: update web servers
+  hosts: web
+
+  tasks:
+  - name: ensure directory is created
+    file:
+      path: /home/centos/hello
+      state: directory
