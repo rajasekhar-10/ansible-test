@@ -1,0 +1,30 @@
+---
+  - name: managed SELinux
+    selinux:
+      policy: targeted
+      state: permissive
+    when: ansible_os_family == "RedHat"
+
+  - name: ensure file updated
+    copy:
+      dest: /var/www/html/welcome.html
+      src: files/sheldon.html
+
+  - name: update server info
+    copy:
+      dest: /var/www/html/static.html
+      src: files/static.html
+
+  - name: update dynamic info
+    template:
+      dest: /var/www/html/dynamic.html
+      src: templates/dynamic.j2
+
+  - name: update apache config
+    template:
+      dest: /etc/httpd/conf/httpd.conf
+      src: templates/httpd.j2
+    when: ansible_os_family == "RedHat"
+    notify:
+      - Restart Apache
+...

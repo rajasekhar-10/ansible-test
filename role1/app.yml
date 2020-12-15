@@ -1,0 +1,7 @@
+---
+- name: update web servers
+  hosts: all
+  become: yes
+  roles: 
+    - ../role1
+...

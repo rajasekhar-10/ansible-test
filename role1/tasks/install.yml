@@ -1,0 +1,14 @@
+---
+  - name: ensure apache is installed
+    package:
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: ensure apache is installed
+    package:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+...
