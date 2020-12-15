@@ -1,9 +1,9 @@
 ---
 - name: update web servers
-  hosts: all
+  hosts: ubuntu
 
   tasks:
   - name: ensure directory is created
     file:
-      path: /home/centos/hello
+      path: /home/ubuntu/hello
       state: directory

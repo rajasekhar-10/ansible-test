@@ -6,16 +6,16 @@
   tasks:
   - name: ensure apache is installed
     package:
-      name: httpd
+      name: apache2
       state: present
 
   - name: ensure apache is started
     service:
-      name: httpd
+      name: apache2
       state: started
 
   - name: ensure apache is enabled
     service:
-      name: httpd
+      name: apache2
       enabled: yes
 ...
